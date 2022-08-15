@@ -76,7 +76,7 @@ export default function Home() {
             </thead>
             <tbody>
               {todoList.map((todoItem, index)=>(
-                <tr key={new Date()}>
+                <tr key={index}>
                   <td className="border px-4 py-2">{index}</td>
                   <td className="border px-4 py-2">{todoItem.title}</td>
                   <td className="border px-4 py-2">

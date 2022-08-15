@@ -8,6 +8,8 @@ export default function Home() {
   const [todoList, setTodoList] = useState([]);
   const [todoTitle, setTodoTitle] = useState("");
   const [count, setCount] = useState(0);
+
+
   useEffect(()=>{
     const todoList = localStorage.getItem("todoList");
     if(todoList){
@@ -25,7 +27,6 @@ export default function Home() {
     setTodoList(newTodoList);
     localStorage.setItem("todoList", JSON.stringify(newTodoList));
     setTodoTitle("");
-    console.log(todoList);
   };
 
   const deleteTodo = (todoID)=>{
@@ -33,6 +34,8 @@ export default function Home() {
     localStorage.setItem("todoList",JSON.stringify(newTodoList));
     setTodoList(newTodoList);
   };
+  
+
 
   return (
     <div className={styles.container}>
@@ -59,7 +62,7 @@ export default function Home() {
               addTodo(todoTitle)
             }}
           >
-          add
+          Add
           </button>
         </div>
         <table className="table-auto">
@@ -79,6 +82,7 @@ export default function Home() {
                   <td className="border px-4 py-2">
                     <button
                       className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                      
                     >
                       Edit
                     </button>
@@ -98,7 +102,6 @@ export default function Home() {
             </tbody>
           </table>
       </main>
-
       <footer className={styles.footer}>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"

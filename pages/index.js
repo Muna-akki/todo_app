@@ -3,11 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
+import { uuid } from "uuidv4";
 
 export default function Home() {
   const [todoList, setTodoList] = useState([]);
   const [todoTitle, setTodoTitle] = useState("");
-  const [count, setCount] = useState(0);
 
 
   useEffect(()=>{
@@ -19,10 +19,9 @@ export default function Home() {
 
   const addTodo = (todoTitle)=>{
     const newTodo = {
-      id: count,
+      id: uuid(),
       title: todoTitle,
     };
-    setCount(count+1);
     const newTodoList = [...todoList, newTodo];
     setTodoList(newTodoList);
     localStorage.setItem("todoList", JSON.stringify(newTodoList));
@@ -76,15 +75,21 @@ export default function Home() {
             </thead>
             <tbody>
               {todoList.map((todoItem, index)=>(
-                <tr key={index}>
+                <tr key={todoItem.id}>
                   <td className="border px-4 py-2">{index}</td>
                   <td className="border px-4 py-2">{todoItem.title}</td>
                   <td className="border px-4 py-2">
-                    <button
-                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    <Link
+                      className="todo_item_title"
+                      href={`/todo/${todoItem.id}`}
                     >
-                      Edit
-                    </button>
+                      <button
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                      >
+                        Edit
+                      </button>
+                    </Link>
+                    
                   </td>
                   <td className="border px-4 py-2">
                     <button

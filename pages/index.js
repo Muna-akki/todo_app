@@ -59,28 +59,28 @@ export default function Home() {
           add
           </button>
         </div>
-        <table class="table-auto">
+        <table className="table-auto">
             <thead>
               <tr>
-                <th class="px-4 py-2">#</th>
-                <th class="px-4 py-2">Title</th>
-                <th class="px-4 py-2">Edit</th>
-                <th class="px-4 py-2">Delete</th>
+                <th className="px-4 py-2">#</th>
+                <th className="px-4 py-2">Title</th>
+                <th className="px-4 py-2">Edit</th>
+                <th className="px-4 py-2">Delete</th>
               </tr>
             </thead>
             <tbody>
               {todoList.map((todoItem, index)=>{
                 <tr>
-                  <td class="border px-4 py-2">{index}</td>
-                  <td class="border px-4 py-2">{todoItem.title}</td>
-                  <td class="border px-4 py-2">
+                  <td className="border px-4 py-2">{index}</td>
+                  <td className="border px-4 py-2">{todoItem.title}</td>
+                  <td className="border px-4 py-2">
                     <button
                       className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                     >
                       Edit
                     </button>
                   </td>
-                  <td class="border px-4 py-2">
+                  <td className="border px-4 py-2">
                     <button
                       className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                     >

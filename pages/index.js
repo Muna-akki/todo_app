@@ -84,7 +84,7 @@ export default function Home() {
                       href={`/todo/${todoItem.id}`}
                     >
                       <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded"
                       >
                         Edit
                       </button>
@@ -93,7 +93,7 @@ export default function Home() {
                   </td>
                   <td className="border px-4 py-2">
                     <button
-                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                      className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
                       onClick={()=>{
                         deleteTodo(todoItem.id);
                       }}

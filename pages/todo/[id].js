@@ -44,8 +44,8 @@ const TodoDetail = ()=>{
             </Head>
             <main className={styles.main}>
                 <div>
-                    <h1>Edit ToDo</h1>
-                    <p>target:{editTarget}</p>
+                    <h1 className="text-5xl font-bold p-3">Edit ToDo</h1>
+                    <p className="text-2xl">target: {editTarget}</p>
 
                 </div>
                 <div className={styles.grid}>
@@ -59,7 +59,7 @@ const TodoDetail = ()=>{
                     />
                     <Link href="/">
                         <button
-                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                            className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded"
                             onClick={()=>{
                                 editTodo(todoItemTitle)
                             }}

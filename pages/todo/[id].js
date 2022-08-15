@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 import styles from "../../styles/Home.module.css";
 import Head from "next/head";
 import Link from "next/link";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const TodoDetail = ()=>{
     const router = useRouter();

@@ -1,13 +1,13 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import {useEffect, useState} from "react";
-//import { uuid } from "uuidv4";
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
   const [todoList, setTodoList] = useState([]);
   const [todoTitle, setTodoTitle] = useState("");
-
+  const [count, setCount] = useState(0);
   useEffect(()=>{
     const todoList = localStorage.getItem("todoList");
     if(todoList){
@@ -17,21 +17,22 @@ export default function Home() {
 
   const addTodo = (todoTitle)=>{
     const newTodo = {
-      id: 1,
+      id: count,
       title: todoTitle,
-    }
-    /*const newTodoList = todoList.slice();
-    newTodoList.push(newTodo);*/
+    };
+    setCount(count+1);
     const newTodoList = [...todoList, newTodo];
     setTodoList(newTodoList);
     localStorage.setItem("todoList", JSON.stringify(newTodoList));
     setTodoTitle("");
-  }
+    console.log(todoList);
+  };
+
   const deleteTodo = (todoID)=>{
-    const newTodoList = todoList.filter((todoItem)=>{todoItem.id !== todoID});
-    localStorage.setItem("todoList",JSON.stringify(newTOdoList));
+    const newTodoList = todoList.filter((todoItem)=>todoItem.id !== todoID);
+    localStorage.setItem("todoList",JSON.stringify(newTodoList));
     setTodoList(newTodoList);
-  }
+  };
 
   return (
     <div className={styles.container}>
@@ -71,7 +72,7 @@ export default function Home() {
               </tr>
             </thead>
             <tbody>
-              {todoList.map((todoItem, index)=>{
+              {todoList.map((todoItem, index)=>(
                 <tr>
                   <td className="border px-4 py-2">{index}</td>
                   <td className="border px-4 py-2">{todoItem.title}</td>
@@ -93,9 +94,7 @@ export default function Home() {
                     </button>
                   </td>
                 </tr>
-              })}
-              
-              
+              ))}
             </tbody>
           </table>
       </main>

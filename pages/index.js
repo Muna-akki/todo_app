@@ -18,14 +18,19 @@ export default function Home() {
   }, []);
 
   const addTodo = (todoTitle)=>{
-    const newTodo = {
-      id: uuid(),
-      title: todoTitle,
-    };
-    const newTodoList = [...todoList, newTodo];
-    setTodoList(newTodoList);
-    localStorage.setItem("todoList", JSON.stringify(newTodoList));
-    setTodoTitle("");
+    if(todoTitle===""){
+      //空文字列の時はAdd操作が無効
+    }else{
+      const newTodo = {
+        id: uuid(),
+        title: todoTitle,
+      };
+      const newTodoList = [...todoList, newTodo];
+      setTodoList(newTodoList);
+      localStorage.setItem("todoList", JSON.stringify(newTodoList));
+      setTodoTitle("");
+    }
+    
   };
 
   const deleteTodo = (todoID)=>{

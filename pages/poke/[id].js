@@ -41,7 +41,7 @@ const PokeDetailPage = ()=>{
 						<li>大きさ: {pokemonDetail.height} cm</li>
 						{pokemonDetail.types.map((type,index)=>{
 							return(
-								<li>
+								<li key={type}>
 									タイプ{index}: {type.type.name}
 								</li>
 							);

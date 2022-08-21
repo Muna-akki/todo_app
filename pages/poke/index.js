@@ -35,7 +35,7 @@ export default function Home() {
           {pokemonList.map((pokemon,index)=>{
 						const pokemonId = getIdFromURL(pokemon.url);
 						return(
-							<div>
+							<div key={pokemonId}>
 								<div className="underline text-blue-500 text-xl ">
 									<Link
 										href={`/poke/${pokemonId}`}
